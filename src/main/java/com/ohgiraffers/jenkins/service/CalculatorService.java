@@ -1,8 +1,7 @@
 package com.ohgiraffers.jenkins.service;
 
+import com.ohgiraffers.jenkins.dto.CalculatorDto;
 import org.springframework.stereotype.Service;
-
-import com.ohgiraffers.bootproject.dto.CalculatorDto;
 
 @Service
 public class CalculatorService {

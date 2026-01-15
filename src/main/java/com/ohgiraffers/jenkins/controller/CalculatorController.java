@@ -1,11 +1,11 @@
 package com.ohgiraffers.jenkins.controller;
 
+import com.ohgiraffers.jenkins.dto.CalculatorDto;
+import com.ohgiraffers.jenkins.service.CalculatorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ohgiraffers.bootproject.dto.CalculatorDto;
-import com.ohgiraffers.bootproject.service.CalculatorService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequiredArgsConstructor
 public class CalculatorController {
-    private final CalculatorService calculatorService;
+    private final com.ohgiraffers.jenkins.service.CalculatorService calculatorService;
 
     @GetMapping("/health")
     public String healthCheck() {
@@ -22,7 +22,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public ResponseEntity<CalculatorDto> plusTwoNumbers(CalculatorDto calculatorDto) {
+    public ResponseEntity<com.ohgiraffers.jenkins.dto.CalculatorDto> plusTwoNumbers(com.ohgiraffers.jenkins.dto.CalculatorDto calculatorDto) {
         log.info("✨핸들러 메소드 실행 여부 및 값 확인 : {}", calculatorDto);
 
         /* Service 계층으로 기능 요청 */

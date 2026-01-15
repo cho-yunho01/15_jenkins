@@ -1,5 +1,6 @@
 package com.ohgiraffers.jenkins.service;
 
+import com.ohgiraffers.jenkins.dto.CalculatorDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,22 +13,22 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class CalculatorServiceTest {
+class CalculatorServiceTests {
     @Autowired
     private CalculatorService calculatorService;
 
     private static Stream<Arguments> provideDTOSource() {
         return Stream.of(
-                Arguments.of(new com.ohgiraffers.bootproject.dto.CalculatorDto(1, 2)),
-                Arguments.of(new com.ohgiraffers.bootproject.dto.CalculatorDto(3, 5)),
-                Arguments.of(new com.ohgiraffers.bootproject.dto.CalculatorDto(10, -2))
+                Arguments.of(new CalculatorDto(1, 2)),
+                Arguments.of(new CalculatorDto(3, 5)),
+                Arguments.of(new CalculatorDto(10, -2))
         );
     }
 
     @DisplayName("두 수의 합 구하기 테스트")
     @ParameterizedTest
     @MethodSource("provideDTOSource")
-    void testTwoNumbers(com.ohgiraffers.bootproject.dto.CalculatorDto input) {
+    void testTwoNumbers(CalculatorDto input) {
         int expected = input.getNum1() + input.getNum2();
         int actual = calculatorService.plusTwoNumbers(input);
         assertEquals(expected, actual);

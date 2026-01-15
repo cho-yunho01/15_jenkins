@@ -1,4 +1,4 @@
-package com.ohgiraffers.bootproject.dto;
+package com.ohgiraffers.jenkins.dto;
 
 import lombok.Getter;
 import lombok.Setter;
